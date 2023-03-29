@@ -138,6 +138,8 @@ GameObject:
   - component: {fileID: 123348376}
   - component: {fileID: 123348380}
   - component: {fileID: 123348381}
+  - component: {fileID: 123348382}
+  - component: {fileID: 123348383}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -279,6 +281,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallMultiplier: 5
   lowJumpMultiplier: 2
+--- !u!114 &123348382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123348373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b17b1ac9b484043956325c198d49ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 937436195}
+  projectilePrefab: {fileID: 7198560475596542993, guid: b941fbd8755d3a746b36834172ef7af6, type: 3}
+  projectileSpeed: 10
+  input: Player_Shoot
+  attackRate: 2
+--- !u!114 &123348383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123348373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402b3e2502ba4ea428417b8f29b8d26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPt: {fileID: 937436195}
+  attackRange: 0.5
+  attackRate: 2
+  attackDamage: 40
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  input: Player_Melee
 --- !u!1 &768444064
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937436194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: -1.2, z: 0}
+  m_LocalPosition: {x: 0.33, y: -1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
