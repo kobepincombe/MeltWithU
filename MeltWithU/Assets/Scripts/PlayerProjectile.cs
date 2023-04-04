@@ -22,10 +22,10 @@ public class PlayerProjectile : MonoBehaviour{
                   //other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
             }
            if (other.gameObject.tag != "Player") {
-                  //GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
+                  GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
                   projectileArt.enabled = false;
                   //Destroy (animEffect, 0.5);
-                  //StartCoroutine(selfDestructHit(animEffect));
+                  StartCoroutine(selfDestructHit(animEffect));
             }
       }
 
