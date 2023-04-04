@@ -7,6 +7,8 @@ public class player : MonoBehaviour
     [SerializeField] private LayerMask playermask;
     public GameObject feet;
     public GameObject head;
+    public Transform bottomRight;
+    public Transform topLeft;
     private Rigidbody2D rigidbodycomponent;
     private Transform headTransform;
     private bool jumpkeywaspressed;
@@ -15,6 +17,8 @@ public class player : MonoBehaviour
     private bool passThrough;
     private bool passThroughBottom;
     private bool SkeyWasPressed;
+    private Transform playerT;
+    private BoxCollider2D playerCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class player : MonoBehaviour
         passThrough = false;
         passThroughBottom = false;
         SkeyWasPressed = false;
+        playerT = GetComponent<Transform>();
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -44,33 +50,43 @@ public class player : MonoBehaviour
 
         rigidbodycomponent.velocity = new Vector2(horizontalinput * 5, rigidbodycomponent.velocity.y);
 
-        if (passThrough && rigidbodycomponent.velocity.y < 0) {
-            passThrough = false;
-            GetComponent<BoxCollider2D>().enabled = true;
+        if (playerT.position.x >= bottomRight.position.x || playerT.position.x <= topLeft.position.x || 
+            playerT.position.y <= bottomRight.position.y || playerT.position.y >= topLeft.position.y)  {
+                Debug.Log("out of range");
+                playerCollider.enabled = true;
+                return;
         }
 
+        // if the player's collider is turned off and the player is falling from jumping, then turn player collider on
+        if (passThrough && rigidbodycomponent.velocity.y < 0) {
+            passThrough = false;
+            playerCollider.enabled = true;
+        }
+        
+        // if the player's collider is turned on and the player jumps upwards and collides with a passThrough object
         Collider2D collision = Physics2D.OverlapCircle(headTransform.position, 0.1f, playermask);
         if (!passThrough && collision != null && collision.tag == "passThrough" && rigidbodycomponent.velocity.y > 0) {
-            GetComponent<BoxCollider2D>().enabled = false;
+            playerCollider.enabled = false;
             passThrough = true;
         } 
 
-
+        // if the player presses the s key and the player is on a pass through collider
         Collider2D feetCollision = Physics2D.OverlapCircle(feetTransform.position, 0.1f, playermask);
         if (SkeyWasPressed && feetCollision != null && feetCollision.tag == "passThrough" && !passThroughBottom) {
             passThroughBottom = true;
-            GetComponent<BoxCollider2D>().enabled = false;
+            playerCollider.enabled = false;
         }
 
         if (SkeyWasPressed) {
             SkeyWasPressed = false;
         }
-
-        Collider2D passThroughCollision = Physics2D.OverlapCircle(feetTransform.position, 0.4f, playermask);
-        if (passThroughBottom && passThroughCollision == null) {
+        
+        // if the player is falling through platform and is about to collide on another platform
+        if (passThroughBottom && feetCollision != null && rigidbodycomponent.velocity.y < -8) {
+            Debug.Log(rigidbodycomponent.velocity.y);
             Debug.Log("pass through bottom collider enabled");
             passThroughBottom = false;
-            GetComponent<BoxCollider2D>().enabled = true;
+            playerCollider.enabled = true;
         } 
 
         //if character is in the air or passing through a platform then cant jump 
@@ -78,6 +94,7 @@ public class player : MonoBehaviour
             return;
         }
 
+        // jump
         if (jumpkeywaspressed) {
              jumpkeywaspressed = false;
              rigidbodycomponent.AddForce(Vector2.up * 8, ForceMode2D.Impulse);

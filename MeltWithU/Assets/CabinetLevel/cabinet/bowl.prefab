@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 793854901469496304}
   - component: {fileID: 793854901469496305}
   - component: {fileID: 793854901469496310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bowl
-  m_TagString: Untagged
+  m_TagString: silverware
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

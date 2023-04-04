@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5719556045290768827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalPosition: {x: 0, y: -12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5719556045495456758}
   - component: {fileID: 5719556045495456759}
   - component: {fileID: 5719556045495456754}
-  - component: {fileID: 5719556045495456765}
+  - component: {fileID: 5079412387969937196}
   m_Layer: 0
   m_Name: bowlPlayer
   m_TagString: Untagged
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 861249df3c433114f9e32ec6f0b1d5f1, type: 3}
+  m_Sprite: {fileID: 1516779430, guid: 3bc60067dcfd4443db1e28e5108bf1fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_Size: {x: 1.76, y: 1.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!210 &5719556045495456758
@@ -145,18 +145,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.76, y: 1.02}
+    oldSize: {x: 15.75, y: 28.0625}
     newSize: {x: 1.76, y: 1.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.76, y: 1.02}
+  m_Size: {x: 7, y: 24}
   m_EdgeRadius: 0
 --- !u!50 &5719556045495456754
 Rigidbody2D:
@@ -173,13 +173,13 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &5719556045495456765
+  m_Constraints: 4
+--- !u!114 &5079412387969937196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,14 +188,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5719556045495456756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490fa1fa76990c540b228f60a917569e, type: 3}
+  m_Script: {fileID: 11500000, guid: 12a30aead3180ad4b939245b6417bc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playermask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   feet: {fileID: 5719556045290768827}
   head: {fileID: 5719556045532059950}
+  bottomRight: {fileID: 0}
+  topLeft: {fileID: 0}
 --- !u!1 &5719556045532059950
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5719556045532059950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
