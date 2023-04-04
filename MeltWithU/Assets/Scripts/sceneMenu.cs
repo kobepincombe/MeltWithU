@@ -22,6 +22,9 @@ public class sceneMenu : MonoBehaviour
     public void cabinetScene() {
         SceneManager.LoadScene("cabinet");
     }
+    public void MouseHoleScene() {
+        SceneManager.LoadScene("MouseHoleScene");
+    }
     public void quit() {
         Application.Quit();
     }

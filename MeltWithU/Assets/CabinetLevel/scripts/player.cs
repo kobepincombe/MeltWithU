@@ -52,7 +52,7 @@ public class player : MonoBehaviour
 
         if (playerT.position.x >= bottomRight.position.x || playerT.position.x <= topLeft.position.x || 
             playerT.position.y <= bottomRight.position.y || playerT.position.y >= topLeft.position.y)  {
-                Debug.Log("out of range");
+                //Debug.Log("out of range");
                 playerCollider.enabled = true;
                 return;
         }

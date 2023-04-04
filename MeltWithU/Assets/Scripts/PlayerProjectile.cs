@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour{
 
-      public int damage = 1;
+      public int damage = 50;
       public GameObject hitEffectAnim;
       public float SelfDestructTime = 4.0f;
       public float SelfDestructVFX = 0.5f;
@@ -19,7 +19,7 @@ public class PlayerProjectile : MonoBehaviour{
       void OnTriggerEnter2D(Collider2D other){
             if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")) {
                   //gameHandlerObj.playerGetHit(damage);
-                  //other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
+                  other.gameObject.GetComponent<EnemyMeleeDamage>().TakeDamage(damage);
             }
            if (other.gameObject.tag != "Player") {
                   GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);

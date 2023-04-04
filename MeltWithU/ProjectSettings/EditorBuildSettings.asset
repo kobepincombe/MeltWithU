@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RollingScene.unity
     guid: 4f12f19f2438f47cf9976eeab8c1056d
+  - enabled: 1
+    path: Assets/Scenes/MouseHoleScene.unity
+    guid: 93869f9be82e3ab498fd3ec5729ccd0a
   m_configObjects: {}
