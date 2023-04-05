@@ -10,7 +10,7 @@ public class EnemyMoveHit : MonoBehaviour {
        private Transform target;
        public int damage = 10;
 
-       public int EnemyLives = 3;
+       //public int EnemyLives = 3;
        private GameHandler gameHandler;
 
        public float attackRange = 10;

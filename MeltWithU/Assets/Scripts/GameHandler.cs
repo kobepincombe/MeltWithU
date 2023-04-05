@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour {
 
       private GameObject player;
-      public static int playerHealth = 100;
-      public int StartPlayerHealth = 100;
-      public GameObject healthText;
+      public static float playerHealth = 100;
+      public float StartPlayerHealth = 100;
+      //public GameObject healthText;
+      public Image healthBar;
+//       public Color healthyColor = new Color(0.3f, 0.8f, 0.3f);
+//       public Color unhealthyColor = new Color(0.8f, 0.3f, 0.3f);
 
       public static int gotTokens = 0;
       public GameObject tokensText;
@@ -42,7 +45,7 @@ public class GameHandler : MonoBehaviour {
                         updateStatsDisplay();
                   }
                   if (damage > 0){
-                        player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation
+                        //player.GetComponent<PlayerHurt>().playerHit();       //play GetHit animation
                   }
             }
 
@@ -58,9 +61,20 @@ public class GameHandler : MonoBehaviour {
             }
       }
 
+      public void SetColor(Color newColor){
+            healthBar.GetComponent<Image>().color = newColor;
+      }
+
       public void updateStatsDisplay(){
-            Text healthTextTemp = healthText.GetComponent<Text>();
-            healthTextTemp.text = "HEALTH: " + playerHealth;
+            healthBar.fillAmount = playerHealth / StartPlayerHealth;
+//             //turn red at low health:
+//             if (playerHealth < 0.3f){
+//                 SetColor(unhealthyColor);
+//             } else {
+//                 SetColor(healthyColor);
+//             }
+            //Text healthTextTemp = healthText.GetComponent<Text>();
+            //healthTextTemp.text = "HEALTH: " + playerHealth;
 
             Text tokensTextTemp = tokensText.GetComponent<Text>();
             tokensTextTemp.text = "GOLD: " + gotTokens;
