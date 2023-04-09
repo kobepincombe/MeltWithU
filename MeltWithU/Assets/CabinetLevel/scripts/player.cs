@@ -44,6 +44,12 @@ public class player : MonoBehaviour
             SkeyWasPressed = true;
         }
         horizontalinput = Input.GetAxis("Horizontal");
+        
+        if (horizontalinput < 0) {
+            playerT.eulerAngles = new Vector3 (0, 180, 0);
+        } else {
+            playerT.eulerAngles = new Vector3 (0, 0, 0);
+        }
     }
 
     void FixedUpdate() {
