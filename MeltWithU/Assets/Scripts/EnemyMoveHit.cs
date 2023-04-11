@@ -59,7 +59,7 @@ public class EnemyMoveHit : MonoBehaviour {
                     //This method adds force to the player, pushing them back without teleporting (choose above or below).
                     Rigidbody2D pushRB = other.gameObject.GetComponent<Rigidbody2D>();
                     Vector2 moveDirectionPush = rb2D.transform.position - other.transform.position;
-                    pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * - 1f, ForceMode2D.Impulse);
+                    pushRB.AddForce(moveDirectionPush.normalized * knockBackForce * -1f, ForceMode2D.Impulse);
                     StartCoroutine(EndKnockBack(pushRB));
               }
        }
