@@ -9,10 +9,18 @@ public class PlayerProjectile : MonoBehaviour{
       public float SelfDestructTime = 4.0f;
       public float SelfDestructVFX = 0.5f;
       public SpriteRenderer projectileArt;
+      private float SDTime;
 
       void Start(){
            projectileArt = GetComponentInChildren<SpriteRenderer>();
-           selfDestruct();
+           SDTime = Time.time + SelfDestructTime;
+           //selfDestruct();
+      }
+
+      void Update() {
+           if (Time.time >= SDTime) {
+                Destroy(gameObject);
+           }
       }
 
       //if the bullet hits a collider, play the explosion animation, then destroy the effect and the bullet
