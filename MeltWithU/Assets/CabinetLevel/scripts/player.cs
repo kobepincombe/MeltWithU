@@ -5,6 +5,7 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     [SerializeField] private LayerMask playermask;
+    public GameObject deadMessage;
     public GameObject feet;
     public GameObject head;
     public Transform bottomRight;
@@ -14,20 +15,18 @@ public class player : MonoBehaviour
     private bool jumpkeywaspressed;
     private float horizontalinput;
     private Transform feetTransform;
-    private bool passThrough;
-    private bool passThroughBottom;
     private bool SkeyWasPressed;
     private Transform playerT;
     private BoxCollider2D playerCollider;
+    private bool passThrough;
     // Start is called before the first frame update
     void Start()
     {
         rigidbodycomponent = GetComponent<Rigidbody2D>();
         feetTransform = feet.GetComponent<Transform>();
         headTransform = head.GetComponent<Transform>();
-        passThrough = false;
-        passThroughBottom = false;
         SkeyWasPressed = false;
+        passThrough = false;
         playerT = GetComponent<Transform>();
         playerCollider = GetComponent<BoxCollider2D>();
     }
@@ -36,7 +35,6 @@ public class player : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("space pressed");
             jumpkeywaspressed = true;
         }
         if (Input.GetKeyDown(KeyCode.S)) {
@@ -64,39 +62,34 @@ public class player : MonoBehaviour
         }
 
         // if the player's collider is turned off and the player is falling from jumping, then turn player collider on
-        if (passThrough && rigidbodycomponent.velocity.y < 0) {
-            passThrough = false;
+        if ((!passThrough && rigidbodycomponent.velocity.y <= 0.1f) || (passThrough && rigidbodycomponent.velocity.y < -6.5f) 
+            && !playerCollider.enabled) {
+            if (passThrough) {
+                passThrough = false;
+            }
             playerCollider.enabled = true;
         }
-        
+
         // if the player's collider is turned on and the player jumps upwards and collides with a passThrough object
         Collider2D collision = Physics2D.OverlapCircle(headTransform.position, 0.1f, playermask);
-        if (!passThrough && collision != null && collision.tag == "passThrough" && rigidbodycomponent.velocity.y > 0) {
+        if (collision != null && collision.tag == "passThrough" && rigidbodycomponent.velocity.y > 0) {
             playerCollider.enabled = false;
-            passThrough = true;
         } 
 
         // if the player presses the s key and the player is on a pass through collider
-        Collider2D feetCollision = Physics2D.OverlapCircle(feetTransform.position, 0.1f, playermask);
-        if (SkeyWasPressed && feetCollision != null && feetCollision.tag == "passThrough" && !passThroughBottom) {
-            passThroughBottom = true;
+        Collider2D feetCollision = Physics2D.OverlapCircle(feetTransform.position, 0.2f, playermask);
+        if (SkeyWasPressed && feetCollision != null && feetCollision.tag == "passThrough") {
+            Debug.Log("fall through");
+            passThrough = true;
             playerCollider.enabled = false;
         }
 
         if (SkeyWasPressed) {
             SkeyWasPressed = false;
-        }
-        
-        // if the player is falling through platform and is about to collide on another platform
-        if (passThroughBottom && feetCollision != null && rigidbodycomponent.velocity.y < -8) {
-            Debug.Log(rigidbodycomponent.velocity.y);
-            Debug.Log("pass through bottom collider enabled");
-            passThroughBottom = false;
-            playerCollider.enabled = true;
         } 
 
         //if character is in the air or passing through a platform then cant jump 
-        if (passThroughBottom || passThrough || Physics2D.OverlapCircle(feetTransform.position, 0.1f, playermask) == null) {
+        if (!playerCollider.enabled || Physics2D.OverlapCircle(feetTransform.position, 0.2f, playermask) == null) {
             return;
         }
 
@@ -112,6 +105,7 @@ public class player : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "mouse") {
             Destroy(gameObject);
+            deadMessage.SetActive(true);
         }
     }
 
