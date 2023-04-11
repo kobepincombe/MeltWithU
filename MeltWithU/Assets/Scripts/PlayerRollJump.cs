@@ -21,9 +21,9 @@ public class PlayerRollJump : MonoBehaviour {
       }
 
      void Update() {
-            if ((IsGrounded()) || (jumpTimes <= 1)){
+            if ((IsGrounded()) || (jumpTimes == 0)){
                   canJump = true;
-            }  else if (jumpTimes > 1){
+            }  else if (jumpTimes >= 1){
                   canJump = false;
             }
 
@@ -46,7 +46,7 @@ public class PlayerRollJump : MonoBehaviour {
             Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
             Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
             if ((groundCheck != null) || (enemyCheck != null)) {
-                  //Debug.Log("I am trouching ground!");
+                  // Debug.Log("Ground!");
                   jumpTimes = 0;
                   return true;
             }
