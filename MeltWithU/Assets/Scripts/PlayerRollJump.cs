@@ -9,9 +9,6 @@ public class PlayerRollJump : MonoBehaviour {
       public float jumpForce = 5f;
       public Transform feet;
       public LayerMask groundLayer;
-      public LayerMask enemyLayer;
-      public bool canJump = false;
-      public int jumpTimes = 0;
       public bool isAlive = true;
       //public AudioSource JumpSFX;
 
@@ -21,19 +18,14 @@ public class PlayerRollJump : MonoBehaviour {
       }
 
      void Update() {
-            if ((IsGrounded()) || (jumpTimes == 0)){
-                  canJump = true;
-            }  else if (jumpTimes >= 1){
-                  canJump = false;
-            }
-
-           if ((Input.GetButtonDown("Jump")) && (canJump) && (isAlive == true)) {
-                  Jump();
+            if (IsGrounded() && isAlive) {
+                  if (Input.GetButtonDown("Jump")) {
+                        Jump();
+                  }
             }
       }
 
       public void Jump() {
-            jumpTimes += 1;
             // rb.velocity = Vector2.up * jumpForce;
             // anim.SetTrigger("Jump");
             // JumpSFX.Play();
@@ -44,10 +36,8 @@ public class PlayerRollJump : MonoBehaviour {
 
       public bool IsGrounded() {
             Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
-            Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
-            if ((groundCheck != null) || (enemyCheck != null)) {
+            if (groundCheck != null) {
                   // Debug.Log("Ground!");
-                  jumpTimes = 0;
                   return true;
             }
             return false;
