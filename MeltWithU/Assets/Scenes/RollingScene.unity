@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  bounceForce: 8.4
+  bounceForce: 9
   launchAngle: 90
   feet: {fileID: 2138196780}
   bounceLayer:

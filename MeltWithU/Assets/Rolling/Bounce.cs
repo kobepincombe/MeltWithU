@@ -20,13 +20,14 @@ public class Bounce : MonoBehaviour
       }
 
     void Update() {
-            if ((canBounce())){
-                bounceCan = true;
-            }
+        
+        if ((canBounce())){
+            bounceCan = true;
+        }
 
-           if (bounceCan) {
-                bounce();
-            }
+        if (bounceCan) {
+            bounce();
+        }
       }
 
       public void bounce() {
@@ -44,7 +45,7 @@ public class Bounce : MonoBehaviour
       }
 
     public bool canBounce() {
-            Collider2D bounceCheck = Physics2D.OverlapCircle(feet.position, .5f, bounceLayer);
+            Collider2D bounceCheck = Physics2D.OverlapCircle(feet.position, .501f, bounceLayer);
             if ((bounceCheck != null)) {
                 Debug.Log("Bounce!");
                 return true;
