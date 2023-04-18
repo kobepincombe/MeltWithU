@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mainGameHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 352600259632206703, guid: 265fa0718da4f9846b82496dbcd76d67, type: 3}
+      propertyPath: m_TagString
+      value: GameHandler
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265fa0718da4f9846b82496dbcd76d67, type: 3}
 --- !u!1 &1812768115

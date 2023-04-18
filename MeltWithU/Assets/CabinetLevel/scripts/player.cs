@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
     [SerializeField] private LayerMask playermask;
     public GameObject deadMessage;
+    public GameObject instructions;
     public GameObject feet;
     public GameObject head;
     public Transform bottomRight;
@@ -19,6 +21,7 @@ public class player : MonoBehaviour
     private Transform playerT;
     private BoxCollider2D playerCollider;
     private bool passThrough;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class player : MonoBehaviour
         passThrough = false;
         playerT = GetComponent<Transform>();
         playerCollider = GetComponent<BoxCollider2D>();
+        StartCoroutine(fadeOut());
     }
 
     // Update is called once per frame
@@ -37,10 +41,11 @@ public class player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             jumpkeywaspressed = true;
         }
-        if (Input.GetKeyDown(KeyCode.S)) {
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
             Debug.Log("s pressed");
             SkeyWasPressed = true;
         }
+
         horizontalinput = Input.GetAxis("Horizontal");
         
         if (horizontalinput < 0) {
@@ -79,7 +84,7 @@ public class player : MonoBehaviour
         // if the player presses the s key and the player is on a pass through collider
         Collider2D feetCollision = Physics2D.OverlapCircle(feetTransform.position, 0.2f, playermask);
         if (SkeyWasPressed && feetCollision != null && feetCollision.tag == "passThrough") {
-            Debug.Log("fall through");
+
             passThrough = true;
             playerCollider.enabled = false;
         }
@@ -107,6 +112,11 @@ public class player : MonoBehaviour
             Destroy(gameObject);
             deadMessage.SetActive(true);
         }
+    }
+
+    IEnumerator fadeOut() {
+        yield return new WaitForSeconds(2.5f);
+        instructions.SetActive(false);
     }
 
 }

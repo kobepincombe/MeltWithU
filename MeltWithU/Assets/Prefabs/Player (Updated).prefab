@@ -43,6 +43,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7114189611138432895}
     - target: {fileID: 5079412387969937196, guid: b7c886f5a9ad25d4c802307937b5f125, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079412387969937196, guid: b7c886f5a9ad25d4c802307937b5f125, type: 3}
       propertyPath: bottomRight
       value: 
       objectReference: {fileID: 7114189610962448364}
@@ -118,7 +122,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5079412387969937196, guid: b7c886f5a9ad25d4c802307937b5f125, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7c886f5a9ad25d4c802307937b5f125, type: 3}
 --- !u!4 &7114189610962448364 stripped
 Transform:
