@@ -6,12 +6,8 @@ using UnityEngine.UI;
 public class player : MonoBehaviour
 {
     [SerializeField] private LayerMask playermask;
-    public GameObject deadMessage;
-    public GameObject instructions;
     public GameObject feet;
     public GameObject head;
-    public Transform bottomRight;
-    public Transform topLeft;
     private Rigidbody2D rigidbodycomponent;
     private Transform headTransform;
     private bool jumpkeywaspressed;
@@ -32,7 +28,6 @@ public class player : MonoBehaviour
         passThrough = false;
         playerT = GetComponent<Transform>();
         playerCollider = GetComponent<BoxCollider2D>();
-        StartCoroutine(fadeOut());
     }
 
     // Update is called once per frame
@@ -58,13 +53,6 @@ public class player : MonoBehaviour
     void FixedUpdate() {
 
         rigidbodycomponent.velocity = new Vector2(horizontalinput * 5, rigidbodycomponent.velocity.y);
-
-        if (playerT.position.x >= bottomRight.position.x || playerT.position.x <= topLeft.position.x || 
-            playerT.position.y <= bottomRight.position.y || playerT.position.y >= topLeft.position.y)  {
-                //Debug.Log("out of range");
-                playerCollider.enabled = true;
-                return;
-        }
 
         // if the player's collider is turned off and the player is falling from jumping, then turn player collider on
         if ((!passThrough && rigidbodycomponent.velocity.y <= 0.1f) || (passThrough && rigidbodycomponent.velocity.y < -6.5f) 
@@ -104,19 +92,6 @@ public class player : MonoBehaviour
              rigidbodycomponent.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
         }
 
-    }
-
-    void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "mouse") {
-            Destroy(gameObject);
-            deadMessage.SetActive(true);
-        }
-    }
-
-    IEnumerator fadeOut() {
-        yield return new WaitForSeconds(2.5f);
-        instructions.SetActive(false);
     }
 
 }

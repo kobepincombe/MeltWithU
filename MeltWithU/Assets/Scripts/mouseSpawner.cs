@@ -36,7 +36,7 @@ public class mouseSpawner : MonoBehaviour
                     }
                 }
                 StartCoroutine(spawnCycle(random));
-            }
+            } 
         }
     }
 
