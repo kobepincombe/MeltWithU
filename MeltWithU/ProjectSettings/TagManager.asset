@@ -9,7 +9,7 @@ TagManager:
   - silverware
   - mouse
   - Sink
-  - enemyRoll
+  - buddies
   layers:
   - Default
   - TransparentFX
