@@ -8,6 +8,8 @@ TagManager:
   - passThrough
   - silverware
   - mouse
+  - Sink
+  - buddies
   layers:
   - Default
   - TransparentFX

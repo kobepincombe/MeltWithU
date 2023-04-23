@@ -7,7 +7,6 @@ public class Bounce : MonoBehaviour
     //public Animator anim;
     public Rigidbody2D rb;
     public float bounceForce = 5f;
-    public float launchAngle = 45f;
     public Transform feet;
     public LayerMask bounceLayer;
     public bool bounceCan = false;
@@ -20,29 +19,35 @@ public class Bounce : MonoBehaviour
       }
 
     void Update() {
-            if ((canBounce())){
-                bounceCan = true;
-            }
+        
+        if ((canBounce())){
+            bounceCan = true;
+        }
 
-           if (bounceCan) {
-                bounce();
-            }
+        if (bounceCan) {
+            bounce();
+        }
       }
 
       public void bounce() {
-            // rb.velocity = Vector2.up * bounceForce;
-            // anim.SetTrigger("bounce");
-            // BounceSFX.Play();
-            Debug.Log("forceadded");
-            float radian = launchAngle * Mathf.Deg2Rad;
-            Vector2 forceDirection = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized;
-            Vector2 force = forceDirection * bounceForce;
-
-            // Apply the force to the rigidbody
-            rb.AddForce(force, ForceMode2D.Impulse);
-            bounceCan = false;
+        // rb.velocity = Vector2.up * bounceForce;
+        // anim.SetTrigger("bounce");
+        // BounceSFX.Play();
+        Debug.Log("forceadded");
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        Vector2 force = new Vector2(.5f, 3.0f).normalized * bounceForce;
+        rb.AddForce(force, ForceMode2D.Impulse);
+        Debug.Log("force:" + force);
+        bounceCan = false;
+        StartCoroutine(ResetBounce());
       }
 
+    IEnumerator ResetBounce() {
+        // Wait for 4 frames
+        for (int i = 0; i < 4; i++) {
+            yield return null;
+        }
+    }
     public bool canBounce() {
             Collider2D bounceCheck = Physics2D.OverlapCircle(feet.position, .5f, bounceLayer);
             if ((bounceCheck != null)) {
