@@ -733,23 +733,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1687448935276229838, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
   m_PrefabInstance: {fileID: 1687448934533525072}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &884693666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884693662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c786ec0468f2c3c4bb9820bcfa340273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playermask:
-    serializedVersion: 2
-    m_Bits: 1
-  scene: Menu
-  enterOrExit: {fileID: 1321033231}
 --- !u!1001 &1040039254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1453,6 +1436,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
+      propertyPath: scene
+      value: Lobby
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
+      propertyPath: enterOrExit
+      value: 
+      objectReference: {fileID: 1321033231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
 --- !u!1001 &5599535686999782960
