@@ -32,7 +32,7 @@ public class PlayerProjectile : MonoBehaviour{
            if (other.gameObject.tag != "Player") {
                   GameObject animEffect = Instantiate (hitEffectAnim, transform.position, Quaternion.identity);
                   projectileArt.enabled = false;
-                  //Destroy (animEffect, 0.5);
+                  Destroy (animEffect, 0.5f);
                   StartCoroutine(selfDestructHit(animEffect));
             }
       }
