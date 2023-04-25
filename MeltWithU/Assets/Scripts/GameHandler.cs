@@ -33,6 +33,12 @@ public class GameHandler : MonoBehaviour {
             updateStatsDisplay();
       }
 
+      void Update(){
+            if (Input.GetKeyDown(KeyCode.Escape)){
+                  SceneManager.LoadScene("Lobby");
+            }
+      }
+
       public void playerGetTokens(int newTokens){
             gotTokens += newTokens;
             updateStatsDisplay();
