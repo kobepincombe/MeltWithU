@@ -8,6 +8,8 @@ public class changeScenes : MonoBehaviour
     [SerializeField] private LayerMask playermask;
     public string scene;
     public Transform enterOrExit;
+    public Vector2 spawnPosition;
+    public bool useSpawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,10 @@ public class changeScenes : MonoBehaviour
     }
 
     public void changeSceneTo(string sceneChange) {
+        if (useSpawnPoint) {
+            PlayerPrefs.SetFloat("spawnPosX", spawnPosition.x);
+            PlayerPrefs.SetFloat("spawnPosY", spawnPosition.y);
+        }
         SceneManager.LoadScene(sceneChange);
     }
 }

@@ -2608,6 +2608,8 @@ MonoBehaviour:
     m_Bits: 1
   scene: Lobby
   enterOrExit: {fileID: 185620677}
+  spawnPosition: {x: 4.4, y: -2.68}
+  useSpawnPoint: 1
 --- !u!4 &1595713557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1687448935276229873, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}

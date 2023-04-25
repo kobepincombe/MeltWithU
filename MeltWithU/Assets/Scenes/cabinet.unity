@@ -1452,6 +1452,18 @@ PrefabInstance:
       propertyPath: enterOrExit
       value: 
       objectReference: {fileID: 1321033231}
+    - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
+      propertyPath: useSpawnPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
+      propertyPath: spawnPosition.x
+      value: 35.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
+      propertyPath: spawnPosition.y
+      value: 7.18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
 --- !u!1001 &5599535686999782960
