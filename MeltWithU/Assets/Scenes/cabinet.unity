@@ -1278,6 +1278,14 @@ PrefabInstance:
       propertyPath: buddyName
       value: :3
       objectReference: {fileID: 0}
+    - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: minDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: cheeseVelocity
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
 --- !u!1001 &1509844463907542821
