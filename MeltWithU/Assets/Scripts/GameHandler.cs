@@ -151,7 +151,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void ReturntoKitchen() {
-            //Time.timeScale = 1f;
+            Time.timeScale = 1f;
             SceneManager.LoadScene("Lobby");
                 // Please also reset all static variables here, for new games!
             //playerHealth = StartPlayerHealth;
