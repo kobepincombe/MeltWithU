@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.4513961, b: 0.10622107, a: 0.5882353}
+  m_Color: {r: 0.7264151, g: 0.4513961, b: 0.10622107, a: 0.7647059}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1422,6 +1422,7 @@ GameObject:
   - component: {fileID: 1776193968}
   - component: {fileID: 1776193967}
   - component: {fileID: 1776193966}
+  - component: {fileID: 4676467766473767887}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1495,6 +1496,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &4676467766473767887
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776193965}
+  m_Enabled: 1
+  m_SortingLayerID: -1149357239
+  m_SortingLayer: 1
+  m_SortingOrder: 1
 --- !u!1 &1836480301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,7 +1750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7580657567115398399, guid: abf4fbf1596b5a94da128e2e0a40e584, type: 3}
       propertyPath: m_Name
-      value: GameHandlerCanvas
+      value: GameHandlerCanvas Pause_Audio
       objectReference: {fileID: 0}
     - target: {fileID: 8578691508243093488, guid: abf4fbf1596b5a94da128e2e0a40e584, type: 3}
       propertyPath: m_RootOrder
