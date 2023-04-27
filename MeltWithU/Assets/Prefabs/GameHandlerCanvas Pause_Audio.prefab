@@ -1422,7 +1422,6 @@ GameObject:
   - component: {fileID: 1776193968}
   - component: {fileID: 1776193967}
   - component: {fileID: 1776193966}
-  - component: {fileID: 4676467766473767887}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1496,17 +1495,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!210 &4676467766473767887
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776193965}
-  m_Enabled: 1
-  m_SortingLayerID: -1149357239
-  m_SortingLayer: 1
-  m_SortingOrder: 1
 --- !u!1 &1836480301
 GameObject:
   m_ObjectHideFlags: 0
