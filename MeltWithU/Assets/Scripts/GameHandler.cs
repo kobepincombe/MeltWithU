@@ -158,6 +158,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void QuitGame() {
+                PlayerPrefs.DeleteAll();
                 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
                 #else

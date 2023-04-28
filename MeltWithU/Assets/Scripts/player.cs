@@ -33,8 +33,14 @@ public class player : MonoBehaviour
             playerT.position = new Vector3(PlayerPrefs.GetFloat("spawnPosX"), 
                                             PlayerPrefs.GetFloat("spawnPosY"), 
                                             0);
+            StartCoroutine(deletingSpawnPoints());
         }
-        PlayerPrefs.DeleteAll();
+    }
+ 
+    IEnumerator deletingSpawnPoints() {
+        yield return new WaitForSeconds(1);
+        PlayerPrefs.DeleteKey("spawnPosX");
+        PlayerPrefs.DeleteKey("spawnPosY");
     }
 
     // Update is called once per frame

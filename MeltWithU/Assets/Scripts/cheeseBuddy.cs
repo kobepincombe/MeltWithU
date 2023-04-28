@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class cheeseBuddy : MonoBehaviour
 {
-    public string buddyName;
     public float cheeseVelocity;
     public float minDistance;
     private Transform cheeseT;
@@ -32,6 +31,10 @@ public class cheeseBuddy : MonoBehaviour
             cheeserb.GetComponent<BoxCollider2D>().enabled = false;
             cheeseParent = collision.gameObject.GetComponent<Transform>().GetChild(0).gameObject;
             cheeseAnimator.SetBool("saved", true);
+            // Debug.Log("after colliding, cheese name is: " + gameObject.name);
+            if (!PlayerPrefs.HasKey(gameObject.name)) {
+                PlayerPrefs.SetString(gameObject.name, "saved");
+            } 
         }
     }
 

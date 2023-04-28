@@ -37,7 +37,7 @@ public class CabinetLevel : MonoBehaviour
             Destroy(gameObject);
             deadMessage.SetActive(true);
         }
-        if (collision.gameObject.tag == "buddies") {
+        if (collision.gameObject.name == "cheeseFriend Variant") {
             SKey.SetActive(true);
         }
     }
