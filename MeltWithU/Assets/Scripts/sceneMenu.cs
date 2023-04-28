@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class sceneMenu : MonoBehaviour
 {
+
+    void Awake() {
+        PlayerPrefs.DeleteAll();
+    }
     // Start is called before the first frame update
     void Start()
     {
