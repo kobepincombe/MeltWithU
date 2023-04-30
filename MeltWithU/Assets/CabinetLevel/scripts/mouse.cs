@@ -11,7 +11,6 @@ public class mouse : MonoBehaviour
     public Transform head;
     public Transform butt;
     private bool gonnaDie;
-    private float horizontalinput;
     private Transform mouseArt;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,12 @@ public class mouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalinput = Input.GetAxis("Horizontal");
+        float horizontalinput = mouserigidbody.velocity.normalized.x;
+        if (horizontalinput < 0) {
+            mouseArt.eulerAngles = new Vector3 (0, 180, 0);
+        } else {
+            mouseArt.eulerAngles = new Vector3 (0, 0, 0);
+        }
         Collider2D headcollision = Physics2D.OverlapCircle(head.position, 0.2f, playermask);
         Collider2D buttcollision = Physics2D.OverlapCircle(butt.position, 0.2f, playermask);
         
@@ -49,11 +53,9 @@ public class mouse : MonoBehaviour
         //if the head collides, change direction
         if (headcollision != null) {
             velocitydir = new Vector3(speedScale, 0, 0);
-             mouseArt.eulerAngles = new Vector3 (0, 0, 0);
         }  //if the butt collides, change direction
         if (buttcollision != null) {
             velocitydir = new Vector3(-1 * speedScale, 0, 0);
-            mouseArt.eulerAngles = new Vector3 (0, 180, 0);
         }
         mouserigidbody.velocity = velocitydir;
 

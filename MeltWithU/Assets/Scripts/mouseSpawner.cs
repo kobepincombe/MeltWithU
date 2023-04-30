@@ -4,11 +4,36 @@ using UnityEngine;
 
 public class mouseSpawner : MonoBehaviour
 {
-    public List<Transform> spawnpoints;
+    [System.Serializable] public struct spawner {
+        public Transform spawnPos;
+        public int limit;
+        private int count;
+        public int speed;
+
+        public spawner(Transform spawnPoint, int limit, int speed) {
+            Debug.Log("creating struct");
+            this.spawnPos = spawnPoint;
+            this.limit = limit;
+            this.count = 0;
+            this.speed = speed;
+        }
+
+        public bool isValid() {
+            return this.limit > this.count;
+        }
+
+        public void increaseCount() {
+            this.count++;
+        }
+
+    }
+
+    public List<spawner> spawnpoints;
     [SerializeField] private LayerMask holeMask;
     public GameObject mouse;
     private bool spawn;
     public float maxTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +47,13 @@ public class mouseSpawner : MonoBehaviour
         if (spawn) {
             int spawnIndex = Random.Range(0, spawnpoints.Count);
             spawn = false;
-            Debug.Log("choosing spawn index "+ spawnIndex + " current count is: " + spawnpoints.Count);
-            if (spawnpoints.Count > 0) {
-                Collider2D block = Physics2D.OverlapCircle(spawnpoints[spawnIndex].position, 0.1f, holeMask);
+            // Debug.Log("choosing spawn index "+ spawnIndex + " current count is: " + spawnpoints.Count);
+            if (spawnpoints.Count > 0 && spawnpoints[spawnIndex].isValid()) {
+                spawner spawn = spawnpoints[spawnIndex];
+                Collider2D block = Physics2D.OverlapCircle(spawn.spawnPos.position, 0.1f, holeMask);
                 float random = (float) Random.Range(0.4f, maxTime);
                 if (block == null) {
-                    Debug.Log("spawning");
-                    Instantiate(mouse, spawnpoints[spawnIndex].position, Quaternion.identity);
+                    spawnMouse(spawn, spawnIndex);
                 } else  {
                     spawnpoints.RemoveAt(spawnIndex);
                     if (maxTime > 2f) {
@@ -43,5 +68,12 @@ public class mouseSpawner : MonoBehaviour
     IEnumerator spawnCycle(float time) {
         yield return new WaitForSeconds(time);
         spawn = true;
+    }
+
+    void spawnMouse(spawner spawn, int spawnIndex) {
+        spawn.increaseCount();
+        mouse.GetComponent<mouse>().speedScale = spawn.speed;
+        Instantiate(mouse, spawn.spawnPos.position, Quaternion.identity);
+        spawnpoints[spawnIndex] = spawn;
     }
 }
