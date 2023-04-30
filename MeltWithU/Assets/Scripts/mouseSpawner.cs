@@ -9,13 +9,15 @@ public class mouseSpawner : MonoBehaviour
         public int limit;
         private int count;
         public int speed;
+        public float damage;
 
-        public spawner(Transform spawnPoint, int limit, int speed) {
+        public spawner(Transform spawnPoint, int limit, int speed, float damage) {
             Debug.Log("creating struct");
             this.spawnPos = spawnPoint;
             this.limit = limit;
             this.count = 0;
             this.speed = speed;
+            this.damage = damage;
         }
 
         public bool isValid() {
@@ -72,7 +74,9 @@ public class mouseSpawner : MonoBehaviour
 
     void spawnMouse(spawner spawn, int spawnIndex) {
         spawn.increaseCount();
-        mouse.GetComponent<mouse>().speedScale = spawn.speed;
+        mouse mouseScript = mouse.GetComponent<mouse>();
+        mouseScript.speedScale = spawn.speed;
+        mouseScript.damage = spawn.damage;
         Instantiate(mouse, spawn.spawnPos.position, Quaternion.identity);
         spawnpoints[spawnIndex] = spawn;
     }

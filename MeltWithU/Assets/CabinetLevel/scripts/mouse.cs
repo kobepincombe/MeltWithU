@@ -6,6 +6,7 @@ public class mouse : MonoBehaviour
 {
     [SerializeField] private LayerMask playermask;
     public int speedScale;
+    public float damage;
     private Transform mouseTransform;
     private Rigidbody2D mouserigidbody;
     public Transform head;

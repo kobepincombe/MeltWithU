@@ -49,4 +49,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   mouse: {fileID: 5797538843525291682, guid: 575912b64dd0031499247eb98500523a, type: 3}
-  maxTime: 4
+  maxTime: 2
