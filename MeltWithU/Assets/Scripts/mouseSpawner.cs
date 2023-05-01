@@ -5,6 +5,7 @@ using UnityEngine;
 public class mouseSpawner : MonoBehaviour
 {
     private Transform spawnPos;
+    public GameObject closed;
     public int limit;
     private int count;
     public int speed;
@@ -33,9 +34,13 @@ public class mouseSpawner : MonoBehaviour
                 if (block == null) {
                     spawnMouse();
                     StartCoroutine(spawnCycle(random));
-                } 
+                } else {
+                    closed.SetActive(true);
+                }
                 //if the hole is blocked once, then the hole no longer spawns
-            } 
+            } else {
+                closed.SetActive(true);
+            }
         }
     }
 
