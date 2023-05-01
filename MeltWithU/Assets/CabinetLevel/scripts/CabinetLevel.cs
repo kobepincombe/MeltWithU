@@ -35,6 +35,9 @@ public class CabinetLevel : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "mouse") {
             Destroy(gameObject);
+            if (instructions.activeSelf) {
+                instructions.SetActive(false);
+            }
             deadMessage.SetActive(true);
         }
         if (collision.gameObject.name == "cheeseFriend Variant") {
@@ -43,7 +46,7 @@ public class CabinetLevel : MonoBehaviour
     }
 
     IEnumerator fadeOut() {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2);
         instructions.SetActive(false);
     }
 }

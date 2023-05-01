@@ -4,33 +4,11 @@ using UnityEngine;
 
 public class mouseSpawner : MonoBehaviour
 {
-    [System.Serializable] public struct spawner {
-        public Transform spawnPos;
-        public int limit;
-        private int count;
-        public int speed;
-        public float damage;
-
-        public spawner(Transform spawnPoint, int limit, int speed, float damage) {
-            Debug.Log("creating struct");
-            this.spawnPos = spawnPoint;
-            this.limit = limit;
-            this.count = 0;
-            this.speed = speed;
-            this.damage = damage;
-        }
-
-        public bool isValid() {
-            return this.limit > this.count;
-        }
-
-        public void increaseCount() {
-            this.count++;
-        }
-
-    }
-
-    public List<spawner> spawnpoints;
+    private Transform spawnPos;
+    public int limit;
+    private int count;
+    public int speed;
+    public float damage;
     [SerializeField] private LayerMask holeMask;
     public GameObject mouse;
     private bool spawn;
@@ -41,28 +19,22 @@ public class mouseSpawner : MonoBehaviour
     {
         spawn = true;
         Physics2D.IgnoreLayerCollision(8, 8, true);
+        spawnPos = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (spawn) {
-            int spawnIndex = Random.Range(0, spawnpoints.Count);
             spawn = false;
-            // Debug.Log("choosing spawn index "+ spawnIndex + " current count is: " + spawnpoints.Count);
-            if (spawnpoints.Count > 0 && spawnpoints[spawnIndex].isValid()) {
-                spawner spawn = spawnpoints[spawnIndex];
-                Collider2D block = Physics2D.OverlapCircle(spawn.spawnPos.position, 0.1f, holeMask);
+            if (count < limit) {
+                Collider2D block = Physics2D.OverlapCircle(spawnPos.position, 0.1f, holeMask);
                 float random = (float) Random.Range(0.4f, maxTime);
                 if (block == null) {
-                    spawnMouse(spawn, spawnIndex);
-                } else  {
-                    spawnpoints.RemoveAt(spawnIndex);
-                    if (maxTime > 2f) {
-                        maxTime = maxTime - 1f;
-                    }
-                }
-                StartCoroutine(spawnCycle(random));
+                    spawnMouse();
+                    StartCoroutine(spawnCycle(random));
+                } 
+                //if the hole is blocked once, then the hole no longer spawns
             } 
         }
     }
@@ -72,12 +44,11 @@ public class mouseSpawner : MonoBehaviour
         spawn = true;
     }
 
-    void spawnMouse(spawner spawn, int spawnIndex) {
-        spawn.increaseCount();
+    void spawnMouse() {
+        count++;
         mouse mouseScript = mouse.GetComponent<mouse>();
-        mouseScript.speedScale = spawn.speed;
-        mouseScript.damage = spawn.damage;
-        Instantiate(mouse, spawn.spawnPos.position, Quaternion.identity);
-        spawnpoints[spawnIndex] = spawn;
+        mouseScript.speedScale = speed;
+        mouseScript.damage = damage;
+        Instantiate(mouse, spawnPos.position, Quaternion.identity);
     }
 }
