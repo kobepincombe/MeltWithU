@@ -10,6 +10,8 @@ TagManager:
   - mouse
   - Sink
   - buddies
+  - enemyRoll
+  - PlayerCam
   layers:
   - Default
   - TransparentFX
