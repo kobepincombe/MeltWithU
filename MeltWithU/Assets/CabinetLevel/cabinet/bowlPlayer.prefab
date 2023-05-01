@@ -193,13 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playermask:
     serializedVersion: 2
-    m_Bits: 64
-  deadMessage: {fileID: 0}
-  instructions: {fileID: 0}
+    m_Bits: 448
   feet: {fileID: 5719556045290768827}
   head: {fileID: 5719556045532059950}
-  bottomRight: {fileID: 0}
-  topLeft: {fileID: 0}
 --- !u!1 &5719556045532059950
 GameObject:
   m_ObjectHideFlags: 0

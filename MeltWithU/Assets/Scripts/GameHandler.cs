@@ -3,16 +3,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameHandler : MonoBehaviour {
 
       private GameObject player;
       public static float playerHealth = 100;
       public float StartPlayerHealth = 100;
-      //public GameObject healthText;
       public Image healthBar;
-//       public Color healthyColor = new Color(0.3f, 0.8f, 0.3f);
-//       public Color unhealthyColor = new Color(0.8f, 0.3f, 0.3f);
 
       public static int gotTokens = 0;
       public GameObject tokensText;
@@ -23,14 +21,63 @@ public class GameHandler : MonoBehaviour {
       //this is a flag check. Add to other scripts: GameHandler.stairCaseUnlocked = true;
 
       private string sceneName;
+      public static bool GameisPaused = false;
+      public GameObject pauseMenuUI;
+      public AudioMixer mixer;
+      public static float volumeLevel = 1.0f;
+      private Slider sliderVolumeCtrl;
+
+
+//       public GameObject healthText;
+//       public Color healthyColor = new Color(0.3f, 0.8f, 0.3f);
+//       public Color unhealthyColor = new Color(0.8f, 0.3f, 0.3f);
+
+      void Awake (){
+              SetLevel (volumeLevel);
+              GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
+              if (sliderTemp != null){
+                      sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
+                      sliderVolumeCtrl.value = volumeLevel;
+              }
+      }
 
       void Start(){
+            pauseMenuUI.SetActive(false);
+            GameisPaused = false;
             player = GameObject.FindWithTag("Player");
             sceneName = SceneManager.GetActiveScene().name;
             //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
             //}
             updateStatsDisplay();
+      }
+
+      void Update(){
+            if (Input.GetKeyDown(KeyCode.Escape)){
+                    if (GameisPaused){
+                            Resume();
+                    }
+                    else{
+                            Pause();
+                    }
+            }
+      }
+
+      void Pause(){
+              pauseMenuUI.SetActive(true);
+              Time.timeScale = 0f;
+              GameisPaused = true;
+      }
+
+      public void Resume(){
+              pauseMenuUI.SetActive(false);
+              Time.timeScale = 1f;
+              GameisPaused = false;
+      }
+
+      public void SetLevel (float sliderValue){
+              mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
+              volumeLevel = sliderValue;
       }
 
       public void playerGetTokens(int newTokens){
@@ -97,12 +144,21 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void RestartGame() {
-            SceneManager.LoadScene("MainMenu");
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(sceneName);
                 // Please also reset all static variables here, for new games!
             playerHealth = StartPlayerHealth;
       }
 
+      public void ReturntoKitchen() {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("Lobby");
+                // Please also reset all static variables here, for new games!
+            //playerHealth = StartPlayerHealth;
+      }
+
       public void QuitGame() {
+                PlayerPrefs.DeleteAll();
                 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
                 #else

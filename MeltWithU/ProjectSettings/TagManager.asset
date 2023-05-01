@@ -11,7 +11,7 @@ TagManager:
   - Sink
   - buddies
   - enemyRoll
-  - PlayerCam
+  - PauseMenuSlider
   layers:
   - Default
   - TransparentFX
@@ -48,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3145610057
     locked: 0

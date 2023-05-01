@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class cheeseBuddy : MonoBehaviour
 {
-    public string buddyName;
+    public float cheeseVelocity;
+    public float minDistance;
     private Transform cheeseT;
     private Rigidbody2D cheeserb;
     private GameObject cheeseParent;
-    private float minDistance;
     private Animator cheeseAnimator;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,6 @@ public class cheeseBuddy : MonoBehaviour
         cheeserb = GetComponent<Rigidbody2D>();
         cheeseAnimator = GetComponent<Animator>();
         cheeseParent = null;
-        minDistance = 1f;
     }
 
     // Update is called once per frame
@@ -32,6 +31,10 @@ public class cheeseBuddy : MonoBehaviour
             cheeserb.GetComponent<BoxCollider2D>().enabled = false;
             cheeseParent = collision.gameObject.GetComponent<Transform>().GetChild(0).gameObject;
             cheeseAnimator.SetBool("saved", true);
+            // Debug.Log("after colliding, cheese name is: " + gameObject.name);
+            if (!PlayerPrefs.HasKey(gameObject.name)) {
+                PlayerPrefs.SetString(gameObject.name, "saved");
+            } 
         }
     }
 
@@ -43,7 +46,7 @@ public class cheeseBuddy : MonoBehaviour
             //Check if we need to follow object then do so 
             if (Vector3.Distance(cheeseParent.transform.position, cheeserb.transform.position) > minDistance)
             {
-                cheeserb.MovePosition(cheeserb.transform.position + dir  * 4.0f * Time.fixedDeltaTime);
+                cheeserb.MovePosition(cheeserb.transform.position + dir  * cheeseVelocity * Time.fixedDeltaTime);
             } else {
                
                 cheeserb.velocity = new Vector3(0, 0, 0);

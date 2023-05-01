@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class sceneMenu : MonoBehaviour
 {
+
+    void Awake() {
+        PlayerPrefs.DeleteAll();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,11 @@ public class sceneMenu : MonoBehaviour
      public void KitchenScene() {
         SceneManager.LoadScene("Lobby");
     }
-    public void quit() {
+    public void QuitGame() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 }

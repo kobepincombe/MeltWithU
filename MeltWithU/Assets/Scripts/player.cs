@@ -28,6 +28,19 @@ public class player : MonoBehaviour
         passThrough = false;
         playerT = GetComponent<Transform>();
         playerCollider = GetComponent<BoxCollider2D>();
+
+        if (PlayerPrefs.HasKey("spawnPosX") && PlayerPrefs.HasKey("spawnPosY")) {
+            playerT.position = new Vector3(PlayerPrefs.GetFloat("spawnPosX"), 
+                                            PlayerPrefs.GetFloat("spawnPosY"), 
+                                            0);
+            StartCoroutine(deletingSpawnPoints());
+        }
+    }
+ 
+    IEnumerator deletingSpawnPoints() {
+        yield return new WaitForSeconds(1);
+        PlayerPrefs.DeleteKey("spawnPosX");
+        PlayerPrefs.DeleteKey("spawnPosY");
     }
 
     // Update is called once per frame
@@ -57,6 +70,7 @@ public class player : MonoBehaviour
         // if the player's collider is turned off and the player is falling from jumping, then turn player collider on
         if ((!passThrough && rigidbodycomponent.velocity.y <= 0.1f) || (passThrough && rigidbodycomponent.velocity.y < -6.5f) 
             && !playerCollider.enabled) {
+
             if (passThrough) {
                 passThrough = false;
             }
@@ -83,6 +97,7 @@ public class player : MonoBehaviour
 
         //if character is in the air or passing through a platform then cant jump 
         if (!playerCollider.enabled || Physics2D.OverlapCircle(feetTransform.position, 0.2f, playermask) == null) {
+            Debug.Log("in the air or passing through a platform");
             return;
         }
 
@@ -93,5 +108,4 @@ public class player : MonoBehaviour
         }
 
     }
-
 }
