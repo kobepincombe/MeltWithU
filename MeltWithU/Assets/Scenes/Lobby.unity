@@ -981,7 +981,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5079412387969937196, guid: a163ce0a6df7743498cd856cba1ad7af, type: 3}
       propertyPath: playermask.m_Bits
-      value: 448
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 5719556045495456752, guid: a163ce0a6df7743498cd856cba1ad7af, type: 3}
       propertyPath: m_RootOrder
