@@ -12,6 +12,8 @@ TagManager:
   - buddies
   - enemyRoll
   - PauseMenuSlider
+  - FriendHandler
+  - SpeechBubble
   layers:
   - Default
   - TransparentFX
