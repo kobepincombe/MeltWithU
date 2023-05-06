@@ -15,7 +15,7 @@ public class player : MonoBehaviour
     private Transform feetTransform;
     private bool SkeyWasPressed;
     private Transform playerT;
-    private BoxCollider2D playerCollider;
+    private CapsuleCollider2D playerCollider;
     private bool passThrough; //a boolean that records if the player is falling through a platform
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class player : MonoBehaviour
         SkeyWasPressed = false;
         passThrough = false;
         playerT = GetComponent<Transform>();
-        playerCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
 
         if (PlayerPrefs.HasKey("spawnPosX") && PlayerPrefs.HasKey("spawnPosY")) {
             playerT.position = new Vector3(PlayerPrefs.GetFloat("spawnPosX"), 

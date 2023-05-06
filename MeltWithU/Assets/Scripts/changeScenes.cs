@@ -19,7 +19,7 @@ public class changeScenes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             Collider2D collider = Physics2D.OverlapCircle(enterOrExit.position, 0.4f, playermask);
             Debug.Log(collider);
             if (collider != null && collider.tag == "Player") {

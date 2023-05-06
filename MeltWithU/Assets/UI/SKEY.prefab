@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 83bf33ea12b6b6e46a4697e01060021e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 379d0765c2c4a2b4bb3ef09dfd288633, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,3 +123,5 @@ MonoBehaviour:
     m_Bits: 1
   scene: 
   enterOrExit: {fileID: 0}
+  spawnPosition: {x: 0, y: 0}
+  useSpawnPoint: 0

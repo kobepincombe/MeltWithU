@@ -16,7 +16,7 @@ public class playerHurtandDie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -25,9 +25,11 @@ public class playerHurtandDie : MonoBehaviour
             GameObject mouse = col.gameObject;
             float damage = mouse.GetComponent<mouse>().damage;
             playerHealthBar.fillAmount = playerHealthBar.fillAmount - damage;
+            PlayerPrefs.SetFloat("PlayerHealth", playerHealthBar.fillAmount);
             if (playerHealthBar.fillAmount <= 0f) {
                 Destroy(gameObject);
-                 dyingMessage.gameObject.SetActive(true);
+                dyingMessage.gameObject.SetActive(true);
+                PlayerPrefs.SetInt("PlayerDied", 1);
             }
         }
     }
