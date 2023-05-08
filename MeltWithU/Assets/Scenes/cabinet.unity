@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181883780742302290, guid: 41ab079ff18adde44a99b2e945aa4464, type: 3}
       propertyPath: m_Name
-      value: mouseSpawner (1)
+      value: cabinet2
       objectReference: {fileID: 0}
     - target: {fileID: 4181883780742302291, guid: 41ab079ff18adde44a99b2e945aa4464, type: 3}
       propertyPath: limit
@@ -1690,7 +1690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181883780742302290, guid: 41ab079ff18adde44a99b2e945aa4464, type: 3}
       propertyPath: m_Name
-      value: mouseSpawner
+      value: cabinet1
       objectReference: {fileID: 0}
     - target: {fileID: 4181883780742302291, guid: 41ab079ff18adde44a99b2e945aa4464, type: 3}
       propertyPath: limit

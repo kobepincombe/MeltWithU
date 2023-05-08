@@ -21,6 +21,10 @@ public class mouseSpawner : MonoBehaviour
         spawn = true;
         Physics2D.IgnoreLayerCollision(8, 8, true);
         spawnPos = GetComponent<Transform>();
+
+        if (PlayerPrefs.HasKey(gameObject.name)) {
+            closeMouseHole();
+        }
     }
 
     // Update is called once per frame
@@ -35,13 +39,19 @@ public class mouseSpawner : MonoBehaviour
                     spawnMouse();
                     StartCoroutine(spawnCycle(random));
                 } else {
-                    closed.SetActive(true);
+                    closeMouseHole();
                 }
                 //if the hole is blocked once, then the hole no longer spawns
             } else {
-                closed.SetActive(true);
+                closeMouseHole();
             }
         }
+    }
+
+    void closeMouseHole() {
+        closed.SetActive(true);
+        PlayerPrefs.SetInt(gameObject.name, 1);
+        spawn = false;
     }
 
     IEnumerator spawnCycle(float time) {

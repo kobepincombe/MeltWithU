@@ -49,7 +49,17 @@ public class GameHandler : MonoBehaviour {
             //if (sceneName=="MainMenu"){ //uncomment these two lines when the MainMenu exists
                   playerHealth = StartPlayerHealth;
             //}
-            updateStatsDisplay();
+            // updateStatsDisplay();
+            if (PlayerPrefs.HasKey("PlayerDied")) {
+                  healthBar.fillAmount = 1;
+                  PlayerPrefs.SetFloat("PlayerHealth", 1f);
+                  PlayerPrefs.DeleteKey("PlayerDied");
+            }
+            else if (PlayerPrefs.HasKey("PlayerHealth")) {
+                  Debug.Log("player health is " + PlayerPrefs.GetFloat("PlayerHealth"));
+                  healthBar.fillAmount = PlayerPrefs.GetFloat("PlayerHealth");
+                  playerHealth = PlayerPrefs.GetFloat("PlayerHealth") * 100;
+            }
       }
 
       void Update(){
@@ -113,7 +123,10 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void updateStatsDisplay(){
+           
             healthBar.fillAmount = playerHealth / StartPlayerHealth;
+            PlayerPrefs.SetFloat("PlayerHealth", healthBar.fillAmount);
+            // healthBar.fillAmount = playerHealth / StartPlayerHealth;
 //             //turn red at low health:
 //             if (playerHealth < 0.3f){
 //                 SetColor(unhealthyColor);
@@ -145,9 +158,10 @@ public class GameHandler : MonoBehaviour {
 
       public void RestartGame() {
             Time.timeScale = 1f;
+            Debug.Log("before loading scene: " + playerHealth);
             SceneManager.LoadScene(sceneName);
                 // Please also reset all static variables here, for new games!
-            playerHealth = StartPlayerHealth;
+            // playerHealth = StartPlayerHealth;
       }
 
       public void ReturntoKitchen() {
