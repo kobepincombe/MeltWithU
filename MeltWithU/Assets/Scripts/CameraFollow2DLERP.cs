@@ -8,7 +8,7 @@ public class CameraFollow2DLERP : MonoBehaviour {
       public float camSpeed = 4.0f;
 
       void Start(){
-            target = GameObject.FindWithTag("PlayerCam");
+            // target = GameObject.FindWithTag("PlayerCam");
       }
 
       void FixedUpdate () {
