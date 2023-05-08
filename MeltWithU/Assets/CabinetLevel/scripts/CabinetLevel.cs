@@ -9,7 +9,7 @@ public class CabinetLevel : MonoBehaviour
     public Transform bottomRight;
     public Transform topLeft;
     private Transform playerT;
-    private BoxCollider2D playerCollider;
+    private CapsuleCollider2D playerCollider;
     public GameObject SKey;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class CabinetLevel : MonoBehaviour
     {
         StartCoroutine(fadeOut());
         playerT = GetComponent<Transform>();
-        playerCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
