@@ -11,7 +11,10 @@ public class Bounce : MonoBehaviour
     public LayerMask bounceLayer;
     public bool bounceCan = false;
     public bool isAlive = true;
-    //public AudioSource JumpSFX;
+    public AudioSource BounceSFX;
+
+    // The direction to launch the object in
+    public Vector3 launchDirection = new Vector3(0,1); 
 
     void Start(){
             //anim = gameObject.GetComponentInChildren<Animator>();
@@ -32,12 +35,14 @@ public class Bounce : MonoBehaviour
       public void bounce() {
         // rb.velocity = Vector2.up * bounceForce;
         // anim.SetTrigger("bounce");
-        // BounceSFX.Play();
+        BounceSFX.Play();
         Debug.Log("forceadded");
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Vector2 force = new Vector2(.5f, 3.0f).normalized * bounceForce;
-        rb.AddForce(force, ForceMode2D.Impulse);
-        Debug.Log("force:" + force);
+        if (rb != null) // Make sure the player has a Rigidbody component
+        {
+            Vector3 launchForce = launchDirection.normalized * bounceForce; // Calculate the launch force
+            rb.AddForce(launchForce, ForceMode2D.Impulse); // Apply the force to the player object
+            Debug.Log("force:" + launchForce);
+        }
         bounceCan = false;
         StartCoroutine(ResetBounce());
       }
