@@ -32,6 +32,10 @@ public class sceneMenu : MonoBehaviour
      public void KitchenScene() {
         SceneManager.LoadScene("Lobby");
     }
+
+    public void FridgeScene() {
+        SceneManager.LoadScene("FridgeScene");
+    }
     public void QuitGame() {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

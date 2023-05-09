@@ -10,6 +10,7 @@ public class PlayerJump : MonoBehaviour {
       public Transform feet;
       public LayerMask groundLayer;
       public LayerMask enemyLayer;
+      public LayerMask silverwareLayer;
       public bool canJump = false;
       public int jumpTimes = 0;
       public bool isAlive = true;
@@ -45,7 +46,8 @@ public class PlayerJump : MonoBehaviour {
       public bool IsGrounded() {
             Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 2f, groundLayer);
             Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 2f, enemyLayer);
-            if ((groundCheck != null) || (enemyCheck != null)) {
+            Collider2D silverwareCheck = Physics2D.OverlapCircle(feet.position, 2f, silverwareLayer);
+            if ((groundCheck != null) || (enemyCheck != null) || (silverwareCheck != null)) {
                   //Debug.Log("I am trouching ground!");
                   jumpTimes = 0;
                   return true;

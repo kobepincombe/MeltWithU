@@ -41,13 +41,6 @@ public class PlayerMove : MonoBehaviour {
            }
       }
 
-      void FixedUpdate(){
-            //slow down on hills / stops sliding from velocity
-            if (hMove.x == 0){
-                  rb2D.velocity = new Vector2(rb2D.velocity.x / 1.1f, rb2D.velocity.y) ;
-            }
-      }
-
       private void playerTurn(){
             // NOTE: Switch player facing label
             FaceRight = !FaceRight;
