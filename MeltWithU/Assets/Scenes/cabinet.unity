@@ -145,6 +145,8 @@ MonoBehaviour:
   - {fileID: 1940391446}
   - {fileID: 5372048145378594016, guid: 625aae4c92dc118468347f73aea804fe, type: 3}
   - {fileID: 5372048145378594016, guid: 870ae03228f712442a82e3940527d4df, type: 3}
+  - {fileID: 5372048145378594016, guid: 93e37d91f29bcb444a804229c8fab4e4, type: 3}
+  - {fileID: 5372048145378594016, guid: 58fe7f6ac20ce71479fe4f30dab9a5f4, type: 3}
 --- !u!1 &328808897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 352600259632206703, guid: 265fa0718da4f9846b82496dbcd76d67, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265fa0718da4f9846b82496dbcd76d67, type: 3}
