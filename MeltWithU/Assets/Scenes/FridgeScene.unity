@@ -9615,5 +9615,17 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8884458782205707335, guid: b1582cafeecab46499ef2b7eeb2d7141, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884458782205707335, guid: b1582cafeecab46499ef2b7eeb2d7141, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.98823535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884458782205707335, guid: b1582cafeecab46499ef2b7eeb2d7141, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.8588236
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1582cafeecab46499ef2b7eeb2d7141, type: 3}

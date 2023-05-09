@@ -1816,6 +1816,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7b5b358e57e784fe88d0360345b155fb, type: 3}
+    - target: {fileID: 5372048144323824089, guid: 625aae4c92dc118468347f73aea804fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372048144323824089, guid: 625aae4c92dc118468347f73aea804fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372048144323824089, guid: 625aae4c92dc118468347f73aea804fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5372048145378594014, guid: 625aae4c92dc118468347f73aea804fe, type: 3}
       propertyPath: m_RootOrder
       value: 4
