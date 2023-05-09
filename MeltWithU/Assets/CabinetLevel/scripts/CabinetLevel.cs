@@ -32,7 +32,7 @@ public class CabinetLevel : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log(collision.gameObject.tag);
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "mouse") {
             Destroy(gameObject);
             if (instructions.activeSelf) {
@@ -40,7 +40,7 @@ public class CabinetLevel : MonoBehaviour
             }
             deadMessage.SetActive(true);
         }
-        if (collision.gameObject.name == "cheeseFriend Variant") {
+        if (collision.gameObject.name == "Tomato") {
             SKey.SetActive(true);
         }
     }

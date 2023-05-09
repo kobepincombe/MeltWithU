@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1047364836717042358, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e20c3ba49535242af8c68cca1727b5ad, type: 3}
+    - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072590, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_Name
       value: shouldBeBlue Variant
@@ -17,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,6 +78,14 @@ PrefabInstance:
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364837776072625, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364837776072625, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_Size.y
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: buddyName
