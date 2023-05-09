@@ -14,7 +14,7 @@ public class BreadChecker : MonoBehaviour
 
     void checkBuddies() {
 
-        if (GameObject.FindGameObjectsWithTag("buddies").Length == 6) {
+        if (GameObject.FindGameObjectsWithTag("buddies").Length == 5) {
             Debug.Log("Final Cutscene");
         } else {
             StartCoroutine(SpeechActivator());
