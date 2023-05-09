@@ -61,9 +61,9 @@ public class StandardPlayerMovement : MonoBehaviour
         upinput = (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space));
         downinput = (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow));
 
-        if ((IsGrounded()) || (jumpTimes <= 1)){
+        if ((IsGrounded()) || (jumpTimes < 1)){
               canJump = true;
-        }  else if (jumpTimes > 1){
+        }  else if (jumpTimes >= 1){
               canJump = false;
         }
 
