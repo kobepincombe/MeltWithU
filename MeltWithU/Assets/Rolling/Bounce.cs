@@ -14,51 +14,57 @@ public class Bounce : MonoBehaviour
     public AudioSource BounceSFX;
 
     // The direction to launch the object in
-    public Vector3 launchDirection = new Vector3(0,1); 
+    public Vector3 launchDirection = new Vector3(1, 2);
 
-    void Start(){
-            //anim = gameObject.GetComponentInChildren<Animator>();
-            rb = GetComponent<Rigidbody2D>();
-      }
+    void Start()
+    {
+        //anim = gameObject.GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
-    void Update() {
-        
-        if ((canBounce())){
+    void Update()
+    {
+        if (canBounce())
+        {
             bounceCan = true;
         }
 
-        if (bounceCan) {
+        if (bounceCan)
+        {
             bounce();
         }
-      }
+    }
 
-      public void bounce() {
-        // rb.velocity = Vector2.up * bounceForce;
-        // anim.SetTrigger("bounce");
+    public void bounce()
+    {
         BounceSFX.Play();
-        Debug.Log("forceadded");
-        if (rb != null) // Make sure the player has a Rigidbody component
+        if (rb != null)
         {
-            Vector3 launchForce = launchDirection.normalized * bounceForce; // Calculate the launch force
-            rb.AddForce(launchForce, ForceMode2D.Impulse); // Apply the force to the player object
-            Debug.Log("force:" + launchForce);
+            Vector3 direction = launchDirection;
+            if (rb.velocity.x < 0) // If player is moving in -x direction, flip the launch direction
+            {
+                direction.x *= -1;
+            }
+            Vector3 launchForce = direction.normalized * bounceForce;
+            rb.AddForce(launchForce, ForceMode2D.Impulse);
         }
         bounceCan = false;
         StartCoroutine(ResetBounce());
-      }
-
-    IEnumerator ResetBounce() {
-        // Wait for 4 frames
-        for (int i = 0; i < 4; i++) {
-            yield return null;
-        }
     }
-    public bool canBounce() {
-            Collider2D bounceCheck = Physics2D.OverlapCircle(feet.position, .5f, bounceLayer);
-            if ((bounceCheck != null)) {
-                Debug.Log("Bounce!");
-                return true;
-            }
-            return false;
+
+    IEnumerator ResetBounce()
+    {
+        yield return new WaitForSeconds(0.2f); // Wait for 0.2 seconds
+    }
+
+    public bool canBounce()
+    {
+        Collider2D bounceCheck = Physics2D.OverlapCircle(feet.position, 0.5f, bounceLayer);
+        if (bounceCheck != null)
+        {
+            Debug.Log("Bounce!");
+            return true;
+        }
+        return false;
     }
 }

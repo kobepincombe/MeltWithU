@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpongBounce
       objectReference: {fileID: 0}
+    - target: {fileID: 3353961481614824166, guid: d98db6fc5efaa43d1b003c00568b0999, type: 3}
+      propertyPath: m_TagString
+      value: Bounce
+      objectReference: {fileID: 0}
     - target: {fileID: 3353961481614824167, guid: d98db6fc5efaa43d1b003c00568b0999, type: 3}
       propertyPath: m_Material
       value: 
