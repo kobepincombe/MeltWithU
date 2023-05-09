@@ -917,6 +917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58fe7f6ac20ce71479fe4f30dab9a5f4, type: 3}
+--- !u!1 &1173498173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5372048145378594016, guid: 58fe7f6ac20ce71479fe4f30dab9a5f4, type: 3}
+  m_PrefabInstance: {fileID: 1173498172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1261771500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1144,6 +1149,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e1925b494916141af8f427aacd773b, type: 3}
+--- !u!1 &1385032346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4306354222644826001, guid: 37e1925b494916141af8f427aacd773b, type: 3}
+  m_PrefabInstance: {fileID: 1385032345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1385032347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385032346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b889342f1bf1a54ba1f0e95b013d2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerT: {fileID: 2133157218}
+  cheeseFriends:
+  - {fileID: 5372048145378594016, guid: 870ae03228f712442a82e3940527d4df, type: 3}
+  - {fileID: 1950465024318941931, guid: a1ac3050cb6a4e8418ff3b15fcf975c7, type: 3}
+  - {fileID: 5372048145378594016, guid: 93e37d91f29bcb444a804229c8fab4e4, type: 3}
+  - {fileID: 5372048145378594016, guid: 625aae4c92dc118468347f73aea804fe, type: 3}
+  - {fileID: 1173498173}
 --- !u!1001 &1403710794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2261,7 +2290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1557190168020167122, guid: 1c1d381dc25a9c742ac9a8f33fdc30c8, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1557190168020167122, guid: 1c1d381dc25a9c742ac9a8f33fdc30c8, type: 3}
       propertyPath: m_AnchorMax.x
