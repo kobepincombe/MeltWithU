@@ -5388,7 +5388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
       propertyPath: scene
-      value: FridgeScene
+      value: TestScene
       objectReference: {fileID: 0}
     - target: {fileID: 5254337241964496531, guid: 5e35e2d83642ce54e8939abfaf9669fb, type: 3}
       propertyPath: enterOrExit

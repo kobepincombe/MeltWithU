@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 608b1df3b39cd4c7186710f3da571b60
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FridgeScene.unity
     guid: 49c12d8b5e078d7419e11073372351fe
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 1b17974daa7ce2c4da5535d1522a87fe
   m_configObjects: {}
