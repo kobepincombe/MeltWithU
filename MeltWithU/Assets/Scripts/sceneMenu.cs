@@ -34,7 +34,7 @@ public class sceneMenu : MonoBehaviour
     }
 
     public void FridgeScene() {
-        SceneManager.LoadScene("FridgeScene");
+        SceneManager.LoadScene("TestScene");
     }
     public void QuitGame() {
         #if UNITY_EDITOR
