@@ -147,8 +147,8 @@ public class GameHandler : MonoBehaviour {
       }
 
       IEnumerator DeathPause(){
-            player.GetComponent<PlayerMove>().isAlive = false;
-            player.GetComponent<PlayerJump>().isAlive = false;
+//             player.GetComponent<PlayerMove>().isAlive = false;
+//             player.GetComponent<PlayerJump>().isAlive = false;
             yield return new WaitForSeconds(1.0f);
             player.SetActive(false);
             dyingMessage.SetActive(true);
