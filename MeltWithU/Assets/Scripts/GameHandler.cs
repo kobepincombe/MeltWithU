@@ -11,6 +11,7 @@ public class GameHandler : MonoBehaviour {
       public static float playerHealth = 100;
       public float StartPlayerHealth = 100;
       public Image healthBar;
+      public GameObject dyingMessage;
 
       public static int gotTokens = 0;
       public GameObject tokensText;
@@ -141,7 +142,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void playerDies(){
-            player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
+            // player.GetComponent<PlayerHurt>().playerDead();       //play Death animation
             StartCoroutine(DeathPause());
       }
 
@@ -149,7 +150,9 @@ public class GameHandler : MonoBehaviour {
             player.GetComponent<PlayerMove>().isAlive = false;
             player.GetComponent<PlayerJump>().isAlive = false;
             yield return new WaitForSeconds(1.0f);
-            SceneManager.LoadScene("EndLose");
+            player.SetActive(false);
+            dyingMessage.SetActive(true);
+            PlayerPrefs.SetInt("PlayerDied", 1);
       }
 
       public void StartGame() {

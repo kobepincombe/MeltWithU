@@ -1245,6 +1245,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &616993757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2804858857981499618, guid: 37e1925b494916141af8f427aacd773b, type: 3}
+  m_PrefabInstance: {fileID: 6121462356032341377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759845882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,8 +3200,20 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1684618412796304930, guid: 37e1925b494916141af8f427aacd773b, type: 3}
+      propertyPath: dyingMessage
+      value: 
+      objectReference: {fileID: 616993757}
     - target: {fileID: 2804858857981499618, guid: 37e1925b494916141af8f427aacd773b, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804858857981499619, guid: 37e1925b494916141af8f427aacd773b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804858857981499619, guid: 37e1925b494916141af8f427aacd773b, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4872160287890361796, guid: 37e1925b494916141af8f427aacd773b, type: 3}
