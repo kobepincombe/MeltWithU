@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BreadChecker : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class BreadChecker : MonoBehaviour
     void checkBuddies() {
 
         if (GameObject.FindGameObjectsWithTag("buddies").Length == 5) {
-            Debug.Log("Final Cutscene");
+            SceneManager.LoadScene("WinScene");
         } else {
             StartCoroutine(SpeechActivator());
         }
