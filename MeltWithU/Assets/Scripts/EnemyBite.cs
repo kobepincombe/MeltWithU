@@ -34,9 +34,9 @@ public class EnemyBite : MonoBehaviour {
 
        void Attack(){
               //anim.SetTrigger ("Attack");
-              Debug.Log("I am biting the player!");
+              //Debug.Log("I am biting the player!");
               if (distanceToMouth < damageRange){
-                     gameHandler.playerGetHit(damage);
+                  gameHandler.playerGetHit(damage);
               }
 
               // Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, damageRange, playerLayer);
