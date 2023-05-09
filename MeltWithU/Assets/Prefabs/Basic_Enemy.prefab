@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   rb2D: {fileID: 4598460321978598990}
-  speed: 4
+  speed: 8
   damage: 10
   attackRange: 10
   isAttacking: 0
