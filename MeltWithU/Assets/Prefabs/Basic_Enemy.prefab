@@ -81,7 +81,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &4598460321978598989
 MonoBehaviour:
@@ -115,7 +115,6 @@ MonoBehaviour:
   rb2D: {fileID: 4598460321978598990}
   speed: 4
   damage: 10
-  EnemyLives: 3
   attackRange: 10
   isAttacking: 0
   knockBackForce: 20
@@ -192,7 +191,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7a0a40b2455c4010901d8633ca9ff1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c52c8509a8c9943428d44fa4f40120de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

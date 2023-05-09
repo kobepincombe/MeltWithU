@@ -20,6 +20,7 @@ public class NPC_PatrolSequencePoints : MonoBehaviour {
        void Start(){
               waitTime = startWaitTime;
               nextSpot = startSpot;
+              
               //anim = gameObject.GetComponentInChildren<Animator>();
        }
 
