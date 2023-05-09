@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1047364836717042358, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7b5b358e57e784fe88d0360345b155fb, type: 3}
+      objectReference: {fileID: 21300000, guid: e20c3ba49535242af8c68cca1727b5ad, type: 3}
     - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -24,12 +24,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364836717042359, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072590, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_Name
-      value: MenuCheese Variant
+      value: BlueCheese
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_RootOrder
@@ -37,11 +49,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.09
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.09
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,13 +99,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1047364837776072624, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072625, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_Size.x
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072625, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: m_Size.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: buddyName
@@ -97,11 +117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: minDistance
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: cheeseVelocity
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1047364837776072626, guid: 0e6c4e113d8268a44b3605746f86f0b4, type: 3}
       propertyPath: playermask.m_Bits

@@ -2255,8 +2255,8 @@ MonoBehaviour:
   playerT: {fileID: 316050706}
   cheeseFriends:
   - {fileID: 699625286}
-  - {fileID: 6872032044936000857, guid: 2c5cd3e471fa56e43a56b2cc8398a948, type: 3}
-  - {fileID: 1944255887150038818, guid: f781ac1af392cdf4cb0a9288cbe4c90d, type: 3}
+  - {fileID: 1950465024318941931, guid: a1ac3050cb6a4e8418ff3b15fcf975c7, type: 3}
+  - {fileID: 5372048145378594016, guid: 870ae03228f712442a82e3940527d4df, type: 3}
 --- !u!1001 &827677128
 PrefabInstance:
   m_ObjectHideFlags: 0

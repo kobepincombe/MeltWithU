@@ -40,7 +40,7 @@ public class CabinetLevel : MonoBehaviour
             }
             deadMessage.SetActive(true);
         }
-        if (collision.gameObject.name == "Tomato") {
+        if (collision.gameObject.name == "Butter Variant") {
             SKey.SetActive(true);
         }
     }
